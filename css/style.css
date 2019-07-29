@@ -1,0 +1,15 @@
+/*.squares{
+	float: left;
+	clear: both;
+	height: 10px;
+	width: 10px;
+	border: 1px black;
+}*/
+
+body{
+	background-color: gray;
+}
+
+#grid{
+	margin-top: 20px;
+}
