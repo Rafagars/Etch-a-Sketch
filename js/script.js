@@ -1,73 +1,69 @@
+
 let length = 16;
 
 const grid = document.querySelector('#grid');
 
-for(let i = 0; i < length; i++){
+function changeSize (){
+	let size = prompt("Please enter new size between 8 and 42", "16");
 
-		const p = document.createElement('p');
+	if (size != null && size >= 8 && size <= 42){
 
-		grid.appendChild(p);
+		length = size;
 
-	for(let j = 0; j < length; j++){
+		while(grid.firstChild){
 
-		const square = document.createElement('span');
+			grid.removeChild(grid.firstChild);
 
-		square.style.display = "inline-block";
+		}
 
-		square.style.width = "30px";
+		makeGrid(length);
 
-		square.style.height = "30px";
+	}
+	
+	else{
 
-		square.style.boxSizing = "content-box";
+		alert("Invalid number");
 
-		square.style.border = "0.5px solid black";
-
-		square.style.backgroundColor = "white";
-
-		square.addEventListener('mouseover', () => {
-
-			square.style.backgroundColor = "black";
-
-		});
-
-		grid.appendChild(square);
 	}
 
-	p.style.margin = "-5px";
 }
 
-const change = document.querySelector('#change');
+function makeGrid(length){
 
-const buttons = document.querySelector('#buttons');
+	for(let i = 0; i < length; i++){
 
-const p = document.createElement('p');
+			const p = document.createElement('p');
 
-buttons.appendChild(p);
+			grid.appendChild(p);
 
-const input = document.createElement('input');
+		for(let j = 0; j < length; j++){
 
-const inputButton = document.createElement('input');
+			const square = document.createElement('span');
 
-p.appendChild(input);
+			square.style.display = "inline-block";
 
-p.appendChild(inputButton);
+			square.style.width = "30px";
 
-p.style.display = "none";
+			square.style.height = "30px";
 
+			square.style.boxSizing = "content-box";
 
-change.addEventListener('click', () => {
+			square.style.border = "0.5px solid black";
 
-	input.type = "text";
+			square.style.backgroundColor = "white";
 
-	input.placeholder = "New size (n x n)";
+			square.addEventListener('mouseover', () => {
 
-	inputButton.type = "submit";
+				square.style.backgroundColor = "black";
 
-	inputButton.value = "Change";
+			});
 
-	p.style.display = "block";
-});
+			grid.appendChild(square);
+		}
 
+		p.style.margin = "-5px";
+	}
 
+}
 
-
+makeGrid(length);
